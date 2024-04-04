@@ -1,7 +1,9 @@
 import binascii
 import math
+from pickle import TRUE
 import numpy as np
-import tkinter as tk
+import tkinter 
+from tkinter import BOTH, ttk
 
 print ("D-Encriptor")
 
@@ -203,9 +205,32 @@ def OutputMessage(method):
 class MyGUI:
     def __init__(self):
         # Create the main window widget.
-        main_window = tk.Tk()
+        self.main_window = tkinter.Tk()
+        self.main_window.geometry("500x666+400+300")
+        
+        # This will create a LabelFrame
+        self.label_frame = ttk.LabelFrame(main_window, text='This is Label Frame')
+        self.label_frame.pack(expand='yes', fill='both')
+ 
+        # Buttons
+        self.btn1 = ttk.Button(self.label_frame, text='Button 1', command = self.ButtonTest)
+        self.btn1.place(x=30, y=10)
+        self.btn2 = ttk.Button(self.label_frame, text='Button 2', command = self.ButtonTest)
+        self.btn2.place(x=130, y=10)
+        
+        self.btn1.pack()
+        self.btn2.pack()
+
         # Enter the tkinter main loop
-        tk.mainloop()
+        self.tkinter.mainloop()
+        
+        
+        
+    def ButtonTest(self):
+        print("button works")
+
+
+
 
 my_gui = MyGUI()
 
