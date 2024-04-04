@@ -1,9 +1,11 @@
 import binascii
 import math
 from pickle import TRUE
+from textwrap import fill
+from tkinter.font import BOLD
 import numpy as np
 import tkinter 
-from tkinter import BOTH, ttk
+from tkinter import BOTH, NORMAL, YES, ttk
 
 print ("D-Encriptor")
 
@@ -207,19 +209,28 @@ class MyGUI:
         # Create the main window widget.
         self.main_window = tkinter.Tk()
         self.main_window.geometry("500x666+400+300")
+        self.main_window.title("D-Encryptor")
         
-        # This will create a LabelFrame
-        self.label_frame = ttk.LabelFrame(self.main_window, text='This is Label Frame')
-        self.label_frame.pack(expand='yes', fill='both')
  
         # Buttons
-        self.btn1 = ttk.Button(self.label_frame, text='Button 1', command = self.ButtonTest)
+        self.btn1 = ttk.Button(self.main_window, text='Button 1', command = self.ButtonTest)
         self.btn1.place(x=30, y=10)
-        self.btn2 = ttk.Button(self.label_frame, text='Button 2', command = self.ButtonTest)
+        self.btn2 = ttk.Button(self.main_window, text='Button 2', command = self.ButtonTest)
         self.btn2.place(x=130, y=10)
         
-        self.btn1.pack()
-        self.btn2.pack()
+
+        # Style (Background doesn't work)
+        self.style = ttk.Style()
+        self.style.configure("Custom.TEntry", background='black', foreground = "green", fieldbackground = "black")
+      
+        # EntryWidgets
+        self.input = ttk.Entry(self.main_window,font = ("system", 10, NORMAL), style = "Custom.TEntry")
+
+        # Grids
+        self.btn1.grid(row = 0, column = 1, pady = 2)
+        self.btn2.grid(row = 1, column = 1, pady = 2)
+        self.input.grid(row = 0, column = 0, pady = 2)
+
 
         # Enter the tkinter main loop
         self.main_window.mainloop()
@@ -229,6 +240,7 @@ class MyGUI:
     def ButtonTest(self):
         print("button works")
 
+    
 
 
 
