@@ -209,7 +209,7 @@ class MyGUI:
         self.main_window.geometry("500x666+400+300")
         
         # This will create a LabelFrame
-        self.label_frame = ttk.LabelFrame(main_window, text='This is Label Frame')
+        self.label_frame = ttk.LabelFrame(self.main_window, text='This is Label Frame')
         self.label_frame.pack(expand='yes', fill='both')
  
         # Buttons
@@ -222,7 +222,7 @@ class MyGUI:
         self.btn2.pack()
 
         # Enter the tkinter main loop
-        self.tkinter.mainloop()
+        self.main_window.mainloop()
         
         
         
