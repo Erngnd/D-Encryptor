@@ -267,7 +267,7 @@ class MyGUI:
         
         
     def ButtonTest(self):
-        print("button works")
+        print("button works!")
 
     
 
