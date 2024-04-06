@@ -1,11 +1,13 @@
 import binascii
 import math
+from msilib.schema import ListBox
 from pickle import TRUE
 from textwrap import fill
 from tkinter.font import BOLD
+from turtle import width
 import numpy as np
 import tkinter 
-from tkinter import BOTH, NORMAL, YES, ttk
+from tkinter import BOTH, BOTTOM, NORMAL, TOP, YES, ttk
 
 print ("D-Encriptor")
 
@@ -208,32 +210,59 @@ class MyGUI:
     def __init__(self):
         # Create the main window widget.
         self.main_window = tkinter.Tk()
-        self.main_window.geometry("500x666+400+300")
+        self.main_window.geometry("500x300+400+300")
         self.main_window.title("D-Encryptor")
+        self.main_window.config(bg="black")
         
  
         # Buttons
-        self.btn1 = ttk.Button(self.main_window, text='Button 1', command = self.ButtonTest)
-        self.btn1.place(x=30, y=10)
-        self.btn2 = ttk.Button(self.main_window, text='Button 2', command = self.ButtonTest)
-        self.btn2.place(x=130, y=10)
+        self.btn1 = tkinter.Button(self.main_window, text='Encrypt', command = self.ButtonTest)
+        self.btn1.config(bg = "black", foreground = "green")
+        self.btn2 = tkinter.Button(self.main_window, text='Decrypt', command = self.ButtonTest)
+        self.btn2.config(bg = "black", foreground = "green")
+             
+        # Input
+        self.inputLabel = tkinter.Label(self.main_window, text = "Input", background = "black", foreground = "green")    
+        self.inputLabel.config(font =("system", 14))
+        self.input = tkinter.Text(self.main_window, font = ("system", 10, NORMAL), height = 5, width = 52,
+                                  background='black', foreground = "green")
         
-
-        # Style (Background doesn't work)
-        self.style = ttk.Style()
-        self.style.configure("Custom.TEntry", background='black', foreground = "green", fieldbackground = "black")
-      
-        # EntryWidgets
-        self.input = ttk.Entry(self.main_window,font = ("system", 10, NORMAL), style = "Custom.TEntry")
+        # Combobox
+        self.methodLabel = ttk.Label(self.main_window, text = "Method", font = ("system", 14), background = "black", foreground = "green") 
+        n = tkinter.StringVar()
+        self.method = ttk.Combobox(self.main_window, width = 27, textvariable = n)
+        
+        self.method['values'] = (' Caesar',  
+                          ' Vigenere', 
+                          ' Columnar Transpose') 
+        self.method.config( background = "black")
+        
+        # Output
+        self.output = tkinter.Text(self.main_window, font = ("system", 10, NORMAL), height = 5, width = 52,
+                                  background='black', foreground = "green")
+        self.outputLabel = tkinter.Label(self.main_window, text = "Output", background = "black", foreground = "green")
+        self.outputLabel.config(font =("system", 14))
+        self.outputFact = """Output Message"""
 
         # Grids
-        self.btn1.grid(row = 0, column = 1, pady = 2)
-        self.btn2.grid(row = 1, column = 1, pady = 2)
-        self.input.grid(row = 0, column = 0, pady = 2)
+        self.inputLabel.grid(row = 0, column = 0, pady = 2, sticky = "w")
+
+        self.btn1.grid(row = 0, column = 1, pady = 2, padx = 2)
+        self.btn2.grid(row = 1, column = 1, pady = 5, padx = 2, sticky = "n")
+        
+        self.input.grid(row = 1, column = 0, pady = 2, sticky = "w")
+        
+        self.methodLabel.grid(row = 2, column = 0, pady = 2, sticky = "w")
+        self.method.grid(row = 3, column = 0, pady = 2, sticky = "w")
+        
+        self.outputLabel.grid(row= 4, column = 0, ipady = 2, sticky = "w",)
+        self.output.grid(row = 5, column = 0, pady = 2)
 
 
         # Enter the tkinter main loop
         self.main_window.mainloop()
+        
+        # self.output.insert(tkinter.Start, self.outputFact) # Output mesaja baglancak
         
         
         
