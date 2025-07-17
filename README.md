@@ -81,4 +81,4 @@ To Do
 
 GUI Preview
 
-![Screenshot of GUI](images/GUI.png)
+![Screenshot of GUI](images/GUI.jpeg)
