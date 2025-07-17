@@ -80,3 +80,5 @@ To Do
     Enhance the GUI layout and usability
 
 GUI Preview
+
+![Screenshot of GUI](images/GUI.png)
