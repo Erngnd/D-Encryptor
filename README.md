@@ -1,5 +1,9 @@
 D-Encryptor
 
+## Authors
+- Ahmet Eren Gündoğdu – [@Erngnd](https://github.com/Erngnd)
+- Şeyma Serttaş – [@SymGnd](https://github.com/SymGnd)
+
 D-Encryptor is a Python-based GUI tool for message encryption and decryption using cryptographic techniques such as Caesar Cipher, Vigenère Cipher, and Columnar Transposition Cipher.
 Features
 
